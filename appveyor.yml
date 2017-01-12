@@ -38,6 +38,10 @@ build_script:
   - npm --version
   - npm run build
 
+after_build:
+  - echo "files in folder 'out/'"
+  - dir /ad /b /s out
+
 artifacts:
   - path: 'out\electron-test\*.exe'
     name: Tide Setup
