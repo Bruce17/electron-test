@@ -12,6 +12,7 @@ matrix:
     - os: linux
       env: ARCH=armv7l
     - os: osx
+      env: ARCH=x64
 
 cache:
   directories:
@@ -29,11 +30,10 @@ install:
   - npm prune
 
 before_script:
-  # Trigger packaging by ourselves to define the target architecture
-  - if [[ -v ARCH ]]; then  electron-forge package --arch=$ARCH  ; fi
+  - npm run lint
 
 script:
-  - npm run build
+  - electron-forge make --arch=$ARCH
 
 # Display folder structure to see all build files.
 #after_script:
