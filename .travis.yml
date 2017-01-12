@@ -13,6 +13,11 @@ cache:
   - node_modules
   - "$HOME/.electron"
 
+addons:
+  apt:
+    packages:
+    - rpm
+
 install:
   - npm install npm -g
   - npm install

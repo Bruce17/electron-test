@@ -36,6 +36,7 @@
           "dmg"
         ],
         "linux": [
+          "rpm",
           "deb"
         ]
       },
