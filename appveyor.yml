@@ -56,9 +56,10 @@ deploy:
   release: electron-test-v$(appveyor_build_version)
   description: ''
   provider: GitHub
-  auth_token:
-    secure: QoicIJQsIF8Guiyl11+n/hEvbyerqpy5VgZxZSSjqUSk66tzA9XclNPHxcpzVBsTsqF/gWP04F3lEIXxXAzc24MRcbVFnrT3NW37FPiOsSs=
+  auth_token: $(GH_TOKEN)
   prerelease: true
   on:
 #    branch: master                 # release from master branch only
     appveyor_repo_tag: true        # deploy on tag push only
+
+test: off
