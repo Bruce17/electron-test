@@ -1,6 +1,6 @@
 {
   "name": "electron-test",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Electron test application to check automatic build process via travis/appveyor.",
   "main": "src/index.js",
   "scripts": {

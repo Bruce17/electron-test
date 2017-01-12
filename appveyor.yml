@@ -40,24 +40,15 @@ build_script:
   - npm run build
 
 after_build:
-  - echo "files in folder 'out/make/'"
-  - dir /a-d /b /s out\make
+  # Display folder structure to see all build files.
+#  - echo "files in folder 'out/make/'"
+#  - dir /a-d /b /s out\make
 
-  # Prepare artifacts manually to rename artifact filename
-#  - ps: Get-ChildItem .\out\make\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "$env:package_name-setup-$env:platform" }
-#  - ps: Get-ChildItem .\out\make\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "$env:package_name-nupkg-$env:platform" }
-#  - ps: Get-ChildItem .\out\make\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "$env:package_name-RELEASES-$env:platform" }
-
-# Rename artifact to include plattform/architecture information.
-artifacts:
-  - path: 'out\make\**\*.exe'
-    name: Setup $env:package_name $env:platform
-
-  - path: 'out\make\**\*.nupkg'
-    name: NUPKG $env:package_name $env:platform
-
-  - path: 'out\make\**\RELEASES'
-    name: RELEASES file $env:package_name $env:platform
+  # Rename artifact to include plattform/architecture information.
+  # This information is only available in AppVeyor. If you want to rename your file names, please have a look at the file "electron-forge.config.js".
+  - ps: Get-ChildItem .\out\make\**\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "Setup $env:package_name $env:platform" }
+  - ps: Get-ChildItem .\out\make\**\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "NUPKG $env:package_name $env:platform" }
+  - ps: Get-ChildItem .\out\make\**\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "RELEASES $env:package_name $env:platform" }
 
 deploy:
   description: ''
