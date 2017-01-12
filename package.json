@@ -42,10 +42,10 @@
       },
       "electronPackagerConfig": {},
       "electronWinstallerConfig": {
-        "name": "my_new_project"
+        "name": "electron_test"
       },
       "electronInstallerDMG": {
-        "name": "my_new_project"
+        "name": "electron_test"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -54,7 +54,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "mynewproject"
+        "name": "electrontest"
       }
     }
   },
