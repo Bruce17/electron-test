@@ -40,10 +40,6 @@ build_script:
   - npm run build
 
 after_build:
-  # Display folder structure to see all build files.
-#  - echo "files in folder 'out/make/'"
-#  - dir /a-d /b /s out\make
-
   # Rename artifact to include plattform/architecture information.
   # This information is only available in AppVeyor. If you want to rename your file names, please have a look at the file "electron-forge.config.js".
   - ps: Get-ChildItem .\out\make\**\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "Setup $env:package_name $env:platform" }

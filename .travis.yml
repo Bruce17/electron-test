@@ -33,12 +33,7 @@ before_script:
   - npm run lint
 
 script:
-  - electron-forge make --arch=$ARCH
-
-# Display folder structure to see all build files.
-#after_script:
-#  - echo "files in folder 'out/make/'"
-#  - find out/make/ -exec ls -dl \{\} \; | awk '{print $3, $4, $9}'
+  - if [[ -v ARCH ]]; then  electron-forge make --arch=$ARCH  ; fi
 
 deploy:
   skip_cleanup: true
