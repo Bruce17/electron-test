@@ -36,8 +36,7 @@
           "dmg"
         ],
         "linux": [
-          "deb",
-          "rpm"
+          "deb"
         ]
       },
       "electronPackagerConfig": {},
