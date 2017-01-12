@@ -5,8 +5,11 @@ node_js:
 
 matrix:
   include:
-  - os: linux
-  - os: osx
+    - os: linux
+      env: ARCH=x86
+    - os: linux
+      env: ARCH=x64
+    - os: osx
 
 cache:
   directories:
@@ -22,6 +25,10 @@ install:
   - npm install npm -g
   - npm install
   - npm prune
+
+before_script:
+  # Trigger packaging by ourselves to define the target architecture
+  - if [[ -v ARCH ]]; then  electron-forge package --arch=$ARCH  ; fi
 
 script:
   - npm run build

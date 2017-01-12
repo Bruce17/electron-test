@@ -21,7 +21,7 @@ module.exports = {
         'setupExe': 'electron_test_' + pkg.version + (!!platform && platform.length > 0 ? ('_' + platform) : '') + '.exe'
     },
     'electronInstallerDMG': {
-        'name': 'electron_test'
+        'title': 'electron_test_' + pkg.version + (!!platform && platform.length > 0 ? ('_' + platform) : '')
     },
     'electronInstallerDebian': {},
     'electronInstallerRedhat': {},
