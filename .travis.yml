@@ -22,8 +22,8 @@ script:
   - npm run build
 
 after_script:
-  - echo "files in folder 'out/'"
-  - tree -if --noreport out/
+  - echo "files in folder 'out/make/'"
+  - find out/make/ -exec ls -dl \{\} \; | awk '{print $3, $4, $9}'
 
 deploy:
   skip_cleanup: true

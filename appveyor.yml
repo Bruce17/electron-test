@@ -39,17 +39,17 @@ build_script:
   - npm run build
 
 after_build:
-  - echo "files in folder 'out/'"
-  - dir /ad /b /s out
+  - echo "files in folder 'out/make/'"
+  - dir /a-d /b /s out\make
 
 artifacts:
-  - path: 'out\electron-test\*.exe'
+  - path: 'out\make\squirrel.windows\*\*.exe'
     name: Tide Setup
 
-  - path: 'out\electron-test\*.nupkg'
+  - path: 'out\make\squirrel.windows\*\*.nupkg'
     name: Tide NUPKG
 
-  - path: 'out\electron-test\RELEASES'
+  - path: 'out\make\squirrel.windows\*\RELEASES'
     name: RELEASES file
 
 deploy:
