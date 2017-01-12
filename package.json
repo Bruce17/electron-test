@@ -26,37 +26,7 @@
   "author": "Michael Raith",
   "license": "MIT",
   "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip",
-          "dmg"
-        ],
-        "linux": [
-          "rpm",
-          "deb"
-        ]
-      },
-      "electronPackagerConfig": {},
-      "electronWinstallerConfig": {
-        "name": "electron_test"
-      },
-      "electronInstallerDMG": {
-        "name": "electron_test"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": ""
-      },
-      "windowsStoreConfig": {
-        "packageName": "",
-        "name": "electrontest"
-      }
-    }
+    "forge": "./electron-forge.config.js"
   },
   "bugs": {
     "url": "https://github.com/Bruce17/electron-test/issues"
