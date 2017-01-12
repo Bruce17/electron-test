@@ -12,8 +12,10 @@ Simple electron application with automatic artefact build process.
 **Travis CI**
 [![Build Status](https://travis-ci.org/Bruce17/electron-test.svg?branch=master)](https://travis-ci.org/Bruce17/electron-test)
 
-**bitHound**
+**Snyk**
 [![Known Vulnerabilities](https://snyk.io/test/github/bruce17/electron-test/badge.svg)](https://snyk.io/test/github/bruce17/electron-test)
+
+**bitHound**
 [![bitHound Overall Score](https://www.bithound.io/github/Bruce17/electron-test/badges/score.svg)](https://www.bithound.io/github/Bruce17/electron-test)
 [![bitHound Dependencies](https://www.bithound.io/github/Bruce17/electron-test/badges/dependencies.svg)](https://www.bithound.io/github/Bruce17/electron-test/master/dependencies/npm)
 [![bitHound Dev Dependencies](https://www.bithound.io/github/Bruce17/electron-test/badges/devDependencies.svg)](https://www.bithound.io/github/Bruce17/electron-test/master/dependencies/npm)
