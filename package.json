@@ -1,0 +1,80 @@
+{
+  "name": "electron-test",
+  "version": "1.0.0",
+  "description": "Electron test application to check automatic build process via travis/appveyor.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "npm run lint",
+    "build": "npm run make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bruce17/electron-test.git"
+  },
+  "keywords": [
+    "electron",
+    "build",
+    "travis",
+    "appveyor",
+    "electron-forge"
+  ],
+  "author": "Michael Raith",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip",
+          "dmg"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {},
+      "electronWinstallerConfig": {
+        "name": "my_new_project"
+      },
+      "electronInstallerDMG": {
+        "name": "my_new_project"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "mynewproject"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/Bruce17/electron-test/issues"
+  },
+  "homepage": "https://github.com/Bruce17/electron-test#readme",
+  "dependencies": {
+    "electron-compile": "^5.1.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.16.0",
+    "electron-forge": "^2.6.0",
+    "electron-prebuilt-compile": "1.4.14",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0"
+  }
+}

@@ -1,0 +1,38 @@
+language: node_js
+
+node_js:
+  - "6"
+
+matrix:
+  include:
+  - os: linux
+  - os: osx
+
+cache:
+  directories:
+  - node_modules
+  - "$HOME/.electron"
+
+install:
+  - npm install npm -g
+  - npm install
+  - npm prune
+
+script:
+  - npm run build
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key: ${GITHUB_TOKEN}
+  file_glob: true
+  file:
+    - out/mac/*.zip
+    - out/mac/*.dmg
+    - out/*.deb
+    - out/*.rpm
+  # releases created by travis are created as prerelease and are manually approved
+  prerelease: true
+  on:
+    repo: Bruce17/electron-test
+    tags: true
