@@ -20,6 +20,7 @@ init:
 install:
   # Update build version depending on package.json version.
   - ps: $env:package_version = (Get-Content -Raw -Path package.json | ConvertFrom-Json).version
+  - ps: $env:package_name = (Get-Content -Raw -Path package.json | ConvertFrom-Json).name
   - ps: Update-AppveyorBuild -Version "$env:package_version-$env:APPVEYOR_BUILD_NUMBER"
 
   # Install Node.js
@@ -42,15 +43,10 @@ after_build:
   - echo "files in folder 'out/make/'"
   - dir /a-d /b /s out\make
 
-artifacts:
-  - path: 'out\make\squirrel.windows\*\*.exe'
-    name: Electron-Test Setup
-
-  - path: 'out\make\squirrel.windows\*\*.nupkg'
-    name: Electron-Test NUPKG
-
-  - path: 'out\make\squirrel.windows\*\RELEASES'
-    name: RELEASES file
+  # Prepare artifacts manually to rename artifact filename
+  - ps: Get-ChildItem .\out\make\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "$env:package_name-setup-$env:platform" }
+  - ps: Get-ChildItem .\out\make\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "$env:package_name-nupkg-$env:platform" }
+  - ps: Get-ChildItem .\out\make\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "$env:package_name-RELEASES-$env:platform" }
 
 deploy:
   description: ''
