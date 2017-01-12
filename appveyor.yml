@@ -47,7 +47,7 @@ after_build:
   - ps: Get-ChildItem .\out\make\**\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "RELEASES $env:package_name $env:platform" }
 
 deploy:
-  release: v$env:package_version
+  release: v$(package_version)
   description: ''
   provider: GitHub
   auth_token: $(GH_TOKEN)
