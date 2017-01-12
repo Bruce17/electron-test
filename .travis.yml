@@ -31,10 +31,13 @@ deploy:
   api_key: ${GITHUB_TOKEN}
   file_glob: true
   file:
-    - out/mac/*.zip
-    - out/mac/*.dmg
-    - out/*.deb
-    - out/*.rpm
+    - out/make/mac/*.zip
+    - out/make/mac/*.dmg
+    - out/make//*.zip
+    - out/make//*.dmg
+    - out/make/*.deb
+    - out/make/*.rpm
+    - out/make/*.zip
   # releases created by travis are created as prerelease and are manually approved
   prerelease: true
   on:

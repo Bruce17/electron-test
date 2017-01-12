@@ -44,10 +44,10 @@ after_build:
 
 artifacts:
   - path: 'out\make\squirrel.windows\*\*.exe'
-    name: Tide Setup
+    name: Electron-Test Setup
 
   - path: 'out\make\squirrel.windows\*\*.nupkg'
-    name: Tide NUPKG
+    name: Electron-Test NUPKG
 
   - path: 'out\make\squirrel.windows\*\RELEASES'
     name: RELEASES file
