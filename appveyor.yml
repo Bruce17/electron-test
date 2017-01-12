@@ -44,9 +44,9 @@ after_build:
   - dir /a-d /b /s out\make
 
   # Prepare artifacts manually to rename artifact filename
-  - ps: Get-ChildItem .\out\make\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName $env:package_name-setup-$env:platform }
-  - ps: Get-ChildItem .\out\make\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName $env:package_name-nupkg-$env:platform }
-  - ps: Get-ChildItem .\out\make\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName $env:package_name-RELEASES-$env:platform }
+  - ps: Get-ChildItem .\out\make\**\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName $env:package_name-setup-$env:platform }
+  - ps: Get-ChildItem .\out\make\**\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName $env:package_name-nupkg-$env:platform }
+  - ps: Get-ChildItem .\out\make\**\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName $env:package_name-RELEASES-$env:platform }
 
 deploy:
   description: ''
