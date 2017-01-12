@@ -19,6 +19,7 @@ Simple electron application with automatic artefact build process.
 [![bitHound Overall Score](https://www.bithound.io/github/Bruce17/electron-test/badges/score.svg)](https://www.bithound.io/github/Bruce17/electron-test)
 [![bitHound Dependencies](https://www.bithound.io/github/Bruce17/electron-test/badges/dependencies.svg)](https://www.bithound.io/github/Bruce17/electron-test/master/dependencies/npm)
 [![bitHound Dev Dependencies](https://www.bithound.io/github/Bruce17/electron-test/badges/devDependencies.svg)](https://www.bithound.io/github/Bruce17/electron-test/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/Bruce17/electron-test/badges/code.svg)](https://www.bithound.io/github/Bruce17/electron-test)
 
 **Dependencies**
 [![dependencies Status](https://david-dm.org/Bruce17/electron-test/status.svg)](https://david-dm.org/Bruce17/electron-test)
