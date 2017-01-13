@@ -38,15 +38,14 @@ build_script:
   - node --version
   - npm --version
 
-after_build:
+before_deploy:
+  - electron-forge make
+
   # Rename artifact to include plattform/architecture information.
   # This information is only available in AppVeyor. If you want to rename your file names, please have a look at the file "electron-forge.config.js".
   - ps: Get-ChildItem .\out\make\**\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "Setup $env:package_name $env:platform" }
   - ps: Get-ChildItem .\out\make\**\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "NUPKG $env:package_name $env:platform" }
   - ps: Get-ChildItem .\out\make\**\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "RELEASES $env:package_name $env:platform" }
-
-before_deploy:
-  - electron-forge make
 
 deploy:
 #  release: v$(package_version)
