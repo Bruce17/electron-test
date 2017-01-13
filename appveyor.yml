@@ -37,7 +37,6 @@ install:
 build_script:
   - node --version
   - npm --version
-  - npm run build
 
 after_build:
   # Rename artifact to include plattform/architecture information.
@@ -45,6 +44,9 @@ after_build:
   - ps: Get-ChildItem .\out\make\**\**\*.exe | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "Setup $env:package_name $env:platform" }
   - ps: Get-ChildItem .\out\make\**\**\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "NUPKG $env:package_name $env:platform" }
   - ps: Get-ChildItem .\out\make\**\**\RELEASES | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName "RELEASES $env:package_name $env:platform" }
+
+before_deploy:
+  - electron-forge make
 
 deploy:
 #  release: v$(package_version)
