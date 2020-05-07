@@ -34,9 +34,11 @@ install:
   - npm install
   - npm prune
 
-build_script:
-  - node --version
-  - npm --version
+build: Script
+
+# build_script:
+#   - node --version
+#   - npm --version
 
 before_deploy:
   - electron-forge make
